@@ -1,0 +1,77 @@
+{
+  "CompanyDetails": [
+    {
+      "cname": "Test testc",
+      "pan": "Pan 1",
+      "tan": "tan 1",
+      "groupCompany": "gc 1",
+      "precisionId": "pid1",
+      "approver": "app1",
+      "status": "Gross Return",
+      "id": "6275"
+    },
+    {
+      "cname": "test 2",
+      "pan": "p2",
+      "tan": "t2",
+      "groupCompany": "gc2",
+      "precisionId": "pid2",
+      "approver": "app2",
+      "status": "Gross Return",
+      "id": "4931"
+    },
+    {
+      "cname": "Upen techno",
+      "pan": "Pan",
+      "tan": "Ta",
+      "groupCompany": "BB",
+      "precisionId": "K",
+      "approver": "K",
+      "status": "Gross Return",
+      "id": "5954"
+    },
+    {
+      "cname": "Tata",
+      "pan": "Pandata",
+      "tan": "TanData",
+      "groupCompany": "GCData",
+      "precisionId": "Pid Data",
+      "approver": "Upendra",
+      "status": "Net Return",
+      "id": "9691"
+    },
+    {
+      "cname": "TCS22",
+      "pan": "Pandata",
+      "tan": "TanData",
+      "groupCompany": "GCData",
+      "precisionId": "Pid Data",
+      "approver": "Upendra",
+      "status": "Net Return",
+      "id": "6376"
+    },
+    {
+      "cname": "TCS44",
+      "pan": "Pandata2",
+      "tan": "TanData",
+      "groupCompany": "GCData",
+      "precisionId": "Pid Data",
+      "approver": "Upendra",
+      "status": "Net Return",
+      "id": "3143"
+    },
+    {
+      "cname": "TCS33",
+      "pan": "Pandata2",
+      "tan": "TanData",
+      "groupCompany": "GCData",
+      "precisionId": "Pid Data",
+      "approver": "Upendra",
+      "status": "Net Return",
+      "id": "6989"
+    },
+    {
+      "id": "iow0Gj5"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+<p-toast></p-toast>
+<div class="card">
+    <p-toolbar styleClass="toolbarStyle">
+        <div class="p-toolbar-group-left">
+            <img src="assets\anemoilogo.jfif" height="40" class="p-mr-2">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"
+                style="margin: 10px;"></button>
+        </div>
+        <div class="p-toolbar-group-center">
+            <h2
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: rgb(255, 0, 0);">
+                Add company data</h2>
+        </div>
+        <div class="p-toolbar-group-right">
+            <!-- <p-button label="Add Bulk Data" icon="pi pi-download" styleClass="p-button-success"></p-button> -->
+
+
+            <p-fileUpload mode="basic" url="#" accept=".xlsx" (onUpload)="excelRead($event)" [auto]="true">
+            </p-fileUpload>
+
+
+            <input type="file" id="input" (change)="excelRead($event)" />
+            <!-- <input type="file" (change)="onFileChange($event)" multiple="false"/> -->
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"
+                style="margin: 6px;"></button>
+        </div>
+    </p-toolbar>
+
+    <p-table [columns]="details" [value]="dataInterfaces" [scrollable]="true" scrollHeight="400px" [rowHover]="true"
+        [rows]="10" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h3 class="p-m-0">Company Details</h3>
+
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+
+            <tr>
+                <th style="width: 3rem;" *ngFor="let i of columns">{{i.header}}</th>
+                <th></th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let j of columns">{{rowData[j.field]}}</td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded" style="margin: 10px;"
+                    (click)="editData(rowData)"></button>
+
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    style="margin: 10px;" (click)="deleteData(rowData)"></button>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<div>
+    <p-dialog [(visible)]="dialogBox" [style]="{width: '450px'}" header="Add Company Details" [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div>
+                <div class="p-field ">
+                    <label for="name">Company Name</label>
+                    <input type="text" pInputText id="name" [(ngModel)]="dataInterface.cname" required autofocus />
+                </div>
+
+                <div class="p-field p-col">
+                    <label for="description">Permenant Account Number(PAN)</label>
+                    <input type="text" pInputText id="pan" [(ngModel)]="dataInterface.pan" required autofocus />
+                </div>
+
+                <div class="p-field">
+                    <label for="description">TAX collection Account Number(TAN)</label>
+                    <input type="text" pInputText id="tan" [(ngModel)]="dataInterface.tan" required autofocus /><br>
+                </div>
+
+                <div class="p-field">
+                    <label for="name">Group Company</label><br>
+                    <input type="text" pInputText id="groupCompany" [(ngModel)]="dataInterface.groupCompany" required
+                        autofocus />
+                </div>
+
+                <div class="p-field">
+                    <label for="name">Precision ID</label><br>
+                    <input type="text" pInputText id="precisionId" [(ngModel)]="dataInterface.precisionId" required
+                        autofocus />
+                </div>
+
+                <div class="p-field">
+                    <label for="name">Approver</label><br>
+                    <input type="text" pInputText id="approver" [(ngModel)]="dataInterface.approver" required
+                        autofocus />
+                </div>
+
+                <div class="p-field" style="margin-bottom: 50px;">
+                    <label for="name">Status</label><br>
+                    <p-dropdown [options]=status [virtualScroll]="true" [(ngModel)]="selectedStatus" optionLabel='name'
+                        placeholder="Select Status">
+                    </p-dropdown>
+                </div>
+
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button style="margin-top: 5px;" pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideDialog()"></button>
+            <button style="margin-top: 5px;" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+                (click)="saveData()"></button>
+        </ng-template>
+
+    </p-dialog>
+</div>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

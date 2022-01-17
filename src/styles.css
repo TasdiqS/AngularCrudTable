@@ -1,0 +1,15 @@
+html,
+body{
+  height: 100%;
+}
+body{
+  margin: 0%;
+}
+.card{
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+}
+.toolbarStyle{
+  margin-bottom: 5px;
+  padding: 1px;
+}
